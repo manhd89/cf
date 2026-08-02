@@ -24,10 +24,7 @@ trong lúc đồng bộ.
 
 ## Deploy nhanh
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME)
-
-> Thay `YOUR_GITHUB_USERNAME/YOUR_REPO_NAME` bằng repo GitHub của bạn sau khi push code này lên
-> (nút Deploy chỉ hoạt động với repo public trên GitHub).
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/manhd89/cf)
 
 Nút Deploy sẽ tự tạo Worker + hỏi bạn tạo R2 bucket / KV namespace tương ứng trong `wrangler.toml`.
 Sau khi deploy xong, làm thêm 2 bước bên dưới (**bắt buộc**) trước khi Worker chạy được.
