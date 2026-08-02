@@ -1,0 +1,32 @@
+name = "zt-adblock-sync"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Chạy tự động mỗi ngày lúc 03:00 UTC. Sửa cron tuỳ ý:
+# https://developers.cloudflare.com/workers/configuration/cron-triggers/
+[triggers]
+crons = ["0 3 * * *"]
+
+# R2 bucket lưu file danh sách raw + snapshot đã xử lý
+[[r2_buckets]]
+binding = "BLOCKLIST_BUCKET"
+bucket_name = "zt-adblock-lists"
+
+# KV lưu cấu hình nguồn (sources), trạng thái lần chạy cuối, id các Gateway List hiện tại
+[[kv_namespaces]]
+binding = "BLOCKLIST_KV"
+id = "REPLACE_AFTER_DEPLOY"
+
+[vars]
+LIST_NAME_PREFIX = "auto-adblock"
+GATEWAY_POLICY_NAME = "Auto AdBlock (Worker)"
+MAX_DOMAINS_PER_LIST = "1000"
+MAX_TOTAL_LISTS = "290"
+ENABLE_SNI_RULE = "false"
+
+# Các secret dưới đây KHÔNG khai báo giá trị ở đây.
+# Sau khi deploy, set bằng: wrangler secret put <TÊN>
+#   CF_API_TOKEN     -> Cloudflare API Token (quyền Zero Trust: Gateway Read/Write)
+#   CF_ACCOUNT_ID    -> Account ID Cloudflare
+#   TRIGGER_SECRET   -> chuỗi bí mật để gọi endpoint /run thủ công

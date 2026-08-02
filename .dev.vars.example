@@ -1,0 +1,4 @@
+# Copy file này thành .dev.vars để test local với `wrangler dev`
+CF_API_TOKEN=your_cloudflare_api_token
+CF_ACCOUNT_ID=your_cloudflare_account_id
+TRIGGER_SECRET=chuoi-bi-mat-tuy-chon

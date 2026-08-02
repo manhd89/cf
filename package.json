@@ -1,0 +1,16 @@
+{
+  "name": "zt-adblock-sync",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Worker tu dong dong bo danh sach chan quang cao vao Cloudflare Zero Trust Gateway (R2 + KV + Gateway API)",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "kv:create": "wrangler kv:namespace create BLOCKLIST_KV",
+    "r2:create": "wrangler r2 bucket create zt-adblock-lists"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}
